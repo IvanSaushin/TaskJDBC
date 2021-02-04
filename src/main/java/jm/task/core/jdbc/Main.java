@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -12,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         List<User> users;
-        UserService userDao= new UserServiceImpl();
+        UserServiceImpl userDao= new UserServiceImpl();
 
         // my test
         userDao.dropUsersTable();
