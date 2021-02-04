@@ -13,40 +13,40 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         List<User> users;
-        UserServiceImpl userDao= new UserServiceImpl();
+        UserServiceImpl userService= new UserServiceImpl();
 
         // my test
-        userDao.dropUsersTable();
+        userService.dropUsersTable();
 
-        userDao.createUsersTable();
-        userDao.saveUser("James", "Smith", (byte) 35);
-        userDao.saveUser("John", "Travolta", (byte) 46);
-        userDao.saveUser("Ms", "Smith", (byte) 32);
-        users = userDao.getAllUsers();
+        userService.createUsersTable();
+        userService.saveUser("James", "Smith", (byte) 35);
+        userService.saveUser("John", "Travolta", (byte) 46);
+        userService.saveUser("Ms", "Smith", (byte) 32);
+        users = userService.getAllUsers();
         users.forEach(System.out::println); // 3 user
         System.out.println();
 
-        userDao.dropUsersTable();
+        userService.dropUsersTable();
 
-        userDao.createUsersTable();
-        userDao.saveUser("Ms", "Smith", (byte) 32);
-        users = userDao.getAllUsers();
+        userService.createUsersTable();
+        userService.saveUser("Ms", "Smith", (byte) 32);
+        users = userService.getAllUsers();
         users.forEach(System.out::println); // 1 user
         System.out.println();
 
-        userDao.cleanUsersTable();
-        users = userDao.getAllUsers();
+        userService.cleanUsersTable();
+        users = userService.getAllUsers();
         users.forEach(System.out::println); // // ________
         System.out.println();
 
-        userDao.saveUser("Ms", "Smith", (byte) 32);
-        userDao.saveUser("John", "Travolta", (byte) 46);
-        users = userDao.getAllUsers();
+        userService.saveUser("Ms", "Smith", (byte) 32);
+        userService.saveUser("John", "Travolta", (byte) 46);
+        users = userService.getAllUsers();
         users.forEach(System.out::println); // 2 user
         System.out.println();
 
-        userDao.removeUserById(1);
-        users = userDao.getAllUsers();
+        userService.removeUserById(1);
+        users = userService.getAllUsers();
         users.forEach(System.out::println); // 1 user
 
     }
